@@ -1,0 +1,30 @@
+apply plugin: 'war'
+
+webAppDirName = 'WebContent'
+
+sourceSets{
+    main{
+        java{
+            srcDir 'src'
+        }
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'javax.servlet', name: 'javax.servlet-api', version: '3.0.1'
+    compile group: 'javax.servlet', name: 'jstl', version: '1.2'
+    compile group: 'hsqldb', name: 'hsqldb', version: '1.8.0.10'
+}
+
+
+
+war {
+    archiveName = 'piirivalve-Team5-2012-g.war'
+    destinationDir= file('dist')
+    webXml = null
+}
+
