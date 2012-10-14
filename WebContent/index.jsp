@@ -7,6 +7,10 @@
     <title>index</title>
 </head>
 <body>
-    <c:redirect url="empty"/>
+    <a href="addGuardPost.jsp">JSP, mis võimaldab sisestada piiripunkti andmed</a><br>
+	<a href="dataview">JSP, mis võimaldab kuvada piiripunkti andmeid tabelis</a><br>
+	<a href="showparameters">Servlet, mis kuvab kõik request parameetrid</a><br>
+	<br>
+	<a href="showparameters?nimi=Pille&sugu=N">Parameetreid kuvav servlet näite parameetritega</a><br>
 </body>
 </html>
