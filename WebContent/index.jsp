@@ -7,6 +7,8 @@
     <title>index</title>
 </head>
 <body>
+    <p>Antud projekti .war on ehitatav nii Gradle kui Ant abil.</p>
+	<br>
     <a href="addGuardPost.jsp">JSP, mis võimaldab sisestada piiripunkti andmed</a><br>
 	<a href="dataview">JSP, mis võimaldab kuvada piiripunkti andmeid tabelis</a><br>
 	<a href="showparameters">Servlet, mis kuvab kõik request parameetrid</a><br>
