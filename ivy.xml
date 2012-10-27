@@ -19,6 +19,9 @@
 		<dependency org="javax.servlet" name="javax.servlet-api"
 			rev="3.0.1" conf="build->default" />
 		<dependency org="javax.servlet" name="jstl" rev="1.2" conf="build->default" />
-		<dependency org="hsqldb" name="hsqldb" rev="1.8.0.10" conf="build->default" />
+		<!--<dependency org="hsqldb" name="hsqldb" rev="1.8.0.10" conf="build->default" />-->
+		<dependency org="org.hsqldb" name="hsqldb" rev="2.2.8" conf="build->default" />
+		
+		<dependency org="org.hibernate" name="hibernate-entitymanager" rev="4.1.7.Final" conf="build->default" />
 	</dependencies>
 </ivy-module>

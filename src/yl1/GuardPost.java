@@ -1,4 +1,4 @@
-package main;
+package yl1;
 
 public class GuardPost {
 	private String name;
