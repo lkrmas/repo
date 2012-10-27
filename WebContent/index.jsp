@@ -8,11 +8,18 @@
 </head>
 <body>
     <p>Antud projekti .war on ehitatav nii Gradle kui Ant abil.</p>
+    <p>Ülesanne 2</p>
+    <a href="generateGuards?count=5">Servlet, millega on võimalik piirivalvureid genereerida</a><br>
+    <a href="searchGuard?name=Kalle&age=50">Servlet, millega on võimalik valvurit otsida nime järgi</a><br>
+    <a href="updateGuard?id=10&name=Pille">Servlet, millega on võimalik valvurit uuendada</a><br>
+    <br>
+    <a href="all">Täiendav servlet, mis näitab kõiki tabelis olevaid piirivalvureid</a><br>
+    <br>
+    <p>Ülesanne 1</p>
+    <a href="yl1/addGuardPost.jsp">JSP, mis võimaldab sisestada piiripunkti andmed</a><br>
+	<a href="yl1/dataview">JSP, mis võimaldab kuvada piiripunkti andmeid tabelis</a><br>
+	<a href="yl1/showparameters">Servlet, mis kuvab kõik request parameetrid</a><br>
 	<br>
-    <a href="addGuardPost.jsp">JSP, mis võimaldab sisestada piiripunkti andmed</a><br>
-	<a href="dataview">JSP, mis võimaldab kuvada piiripunkti andmeid tabelis</a><br>
-	<a href="showparameters">Servlet, mis kuvab kõik request parameetrid</a><br>
-	<br>
-	<a href="showparameters?nimi=Pille&sugu=N">Parameetreid kuvav servlet näite parameetritega</a><br>
+	<a href="yl1/showparameters?nimi=Pille&sugu=N">Parameetreid kuvav servlet näite parameetritega</a><br>
 </body>
 </html>

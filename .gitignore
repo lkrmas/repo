@@ -1,10 +1,16 @@
+.*
+
+/*/
+!/src/
+!/WebContent/
+
+/WebContent/WEB-INF/classes/META-INF/persistence.xml
+!/lib/ivy-2.2.0.jar
+
 *.class
 
 *.jar
 *.war
 *.ear
 
-.*
-/ivy
-!/lib/ivy-2.2.0.jar
 !.gitignore
