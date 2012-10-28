@@ -27,6 +27,12 @@ public class GuardService {
         return gs;
     }
 	
+	public void updateGuard(Integer id, String name, Integer age)
+    {
+        GuardDAO dao = new GuardDAO();
+        dao.updateGuard(id, name, age);
+        dao.terminate();
+    }
 
 	public List<Guard> generateGuards(int count)
     {

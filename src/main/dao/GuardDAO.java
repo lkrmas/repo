@@ -47,6 +47,17 @@ public class GuardDAO {
 
 		return guards;
 	}
+	
+	public void updateGuard(Integer id, String name, Integer age) {
+		Guard g1 = em.find(Guard.class,id);
+		if (age != null) {
+			g1.setAge(age);
+		}
+		if (name != null) {
+			g1.setName(name);
+		}
+		em.merge(g1);
+	}
 
 	public void insertGuards(List<Guard> guards) {
 		for (Guard guard : guards)
