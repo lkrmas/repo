@@ -11,7 +11,7 @@ import main.data.Guard;
 
 public class GuardDAO {
 
-	private static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("PU");
+	private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("PU");
 	private EntityManager em;
 
 	public GuardDAO() {
