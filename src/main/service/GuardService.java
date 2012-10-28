@@ -26,6 +26,7 @@ public class GuardService {
         dao.terminate();
         return gs;
     }
+	
 
 	public List<Guard> generateGuards(int count)
     {
