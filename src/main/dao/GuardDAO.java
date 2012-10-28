@@ -24,6 +24,20 @@ public class GuardDAO {
 		List<Guard> guards = q.getResultList();
 		return guards;
 	}
+    
+    public List<Guard> retrieveGuards(String name, Integer age) {
+    	String nameQ="%";
+    	String ageQ="";
+    	if (name!=null){
+    		nameQ="%"+name+"%";
+    	}
+    	if (age!=null){
+    		ageQ=" and age="+age.toString();
+    	}
+		TypedQuery<Guard> q = em.createQuery("SELECT g FROM Guard g where name like '"+nameQ+"'"+ageQ, Guard.class);
+		List<Guard> guards = q.getResultList();
+		return guards;
+	}
 
 	public void insertGuards(List<Guard> guards) {
         for (Guard guard : guards)

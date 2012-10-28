@@ -18,6 +18,14 @@ public class GuardService {
         dao.terminate();
         return gs;
     }
+	
+	public List<Guard> retrieveGuardsByNameAge(String name, Integer age)
+    {
+        GuardDAO dao = new GuardDAO();
+        List<Guard> gs = dao.retrieveGuards(name, age);
+        dao.terminate();
+        return gs;
+    }
 
 	public List<Guard> generateGuards(int count)
     {
