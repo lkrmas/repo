@@ -17,11 +17,21 @@ import javax.servlet.http.HttpServletResponse;
 public class Management extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	private EntityManagerFactory emf;
+	private static EntityManagerFactory emf;
 	private EntityManager em;
 
+	private static void Construct() {
+		if (emf == null)
+			emf = Persistence.createEntityManagerFactory("PU");
+	}
+
+	public static EntityManager NewEntityManager() {
+		Construct();
+		return emf.createEntityManager();
+	}
+
 	public void initiate() {
-		emf = Persistence.createEntityManagerFactory("PU");
+		Construct();
 		em = emf.createEntityManager();
 		em.getTransaction().begin();
 	}
@@ -42,7 +52,6 @@ public class Management extends HttpServlet {
 	public void terminate() {
 		em.getTransaction().commit();
 		em.close();
-		emf.close();
 	}
 
 	public static void main(String[] args) {
@@ -67,6 +76,10 @@ public class Management extends HttpServlet {
 	}
 
 	public void destroy() {
+		if (emf != null) {
+			emf.close();
+			emf = null;
+		}
 	}
 
 }

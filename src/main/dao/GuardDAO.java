@@ -3,19 +3,17 @@ package main.dao;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
 import main.data.Guard;
+import manage.Management;
 
 public class GuardDAO {
 
-	private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("PU");
 	private EntityManager em;
 
 	public GuardDAO() {
-		em = emf.createEntityManager();
+		em = Management.NewEntityManager();
 		em.getTransaction().begin();
 	}
 
@@ -24,7 +22,7 @@ public class GuardDAO {
 		List<Guard> guards = q.getResultList();
 		return guards;
 	}
-    
+
     public List<Guard> retrieveGuards(String name, Integer age) {
     	String nameQ="%";
     	String ageQ="";
