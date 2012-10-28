@@ -37,7 +37,7 @@ public class GuardService {
 		for (int i = 0; i < count; i ++) {
 	        Guard g = new Guard();
 	        g.setName("Generated #" + i + " on " + df.format(cal.getTime()));
-	        g.setAge(-1);
+	        g.setAge(-i - 1);
 	        gs.add(g);
 		}
         dao.insertGuards(gs);

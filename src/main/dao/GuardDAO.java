@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -13,15 +11,14 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 import main.data.Guard;
+import manage.Management;
 
 public class GuardDAO {
 
-	private static EntityManagerFactory emf = Persistence
-			.createEntityManagerFactory("PU");
 	private EntityManager em;
 
 	public GuardDAO() {
-		em = emf.createEntityManager();
+		em = Management.NewEntityManager();
 		em.getTransaction().begin();
 	}
 
@@ -43,15 +40,13 @@ public class GuardDAO {
 		if (age != null) {
 			predicateList.add(cb.equal(guard.get("age"), age));
 		}
-	    Predicate[] predicates = new Predicate[predicateList.size()];
-	    predicateList.toArray(predicates);
-	    query.where(predicates);
+		Predicate[] predicates = new Predicate[predicateList.size()];
+		predicateList.toArray(predicates);
+		query.where(predicates);
 		List<Guard> guards = em.createQuery(query).getResultList();
 
 		return guards;
 	}
-
-
 
 	public void insertGuards(List<Guard> guards) {
 		for (Guard guard : guards)

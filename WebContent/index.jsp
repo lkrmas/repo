@@ -7,7 +7,6 @@
     <title>index</title>
 </head>
 <body>
-    <p>Antud projekti .war on ehitatav nii Gradle kui Ant abil.</p>
     <p>Ülesanne 2</p>
     <a href="generateGuards?count=5">Servlet, millega on võimalik piirivalvureid genereerida</a><br>
     <a href="searchGuard?name=Kalle&age=50">Servlet, millega on võimalik valvurit otsida nime järgi</a><br>
