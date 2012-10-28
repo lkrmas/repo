@@ -29,16 +29,16 @@ public class GuardService {
 
 	public List<Guard> generateGuards(int count)
     {
-        DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        DateFormat df = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
         Calendar cal = Calendar.getInstance();
+        GuardDAO dao = new GuardDAO();
         List<Guard> gs = new ArrayList<Guard>();
 		for (int i = 0; i < count; i ++) {
 	        Guard g = new Guard();
 	        g.setName("Generated #" + i + " on " + df.format(cal.getTime()));
-	        g.setAge(0);
+	        g.setAge(-1);
 	        gs.add(g);
 		}
-        GuardDAO dao = new GuardDAO();
         dao.insertGuards(gs);
         dao.terminate();
         return gs;

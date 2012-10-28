@@ -5,6 +5,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -29,11 +31,12 @@ public class Management extends HttpServlet {
 	}
 
 	public void createNewDB() {
-		try {
+		@SuppressWarnings("unchecked")
+		ArrayList<Object> schema = (ArrayList<Object>) em.createNativeQuery("SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'PUBLIC' AND TABLE_NAME = 'ID'").getResultList();
+		if (schema.isEmpty()) {
+			em.createNativeQuery("CREATE TABLE ID (ID IDENTITY)").executeUpdate();
 			em.createNativeQuery("CREATE TABLE guard (id IDENTITY, name VARCHAR(50), age INT);").executeUpdate();
-		}
-		catch (Exception e) {
-		}
+			}
 	}
 
 	public void terminate() {
