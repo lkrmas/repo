@@ -21,8 +21,16 @@ public class Management extends HttpServlet {
 	private EntityManager em;
 
 	private static void Construct() {
-		if (emf == null)
+		if (emf == null) {
 			emf = Persistence.createEntityManagerFactory("PU");
+		}
+	}
+
+	private static void Destruct() {
+		if (emf != null) {
+			emf.close();
+			emf = null;
+		}
 	}
 
 	public static EntityManager NewEntityManager() {
@@ -60,6 +68,7 @@ public class Management extends HttpServlet {
 		m.dropOldDB();
 		m.createNewDB();
 		m.terminate();
+		Destruct();
 	}
 
 	public void init() throws ServletException {
@@ -76,10 +85,7 @@ public class Management extends HttpServlet {
 	}
 
 	public void destroy() {
-		if (emf != null) {
-			emf.close();
-			emf = null;
-		}
+		Destruct();
 	}
 
 }
