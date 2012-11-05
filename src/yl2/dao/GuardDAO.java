@@ -1,4 +1,4 @@
-package main.dao;
+package yl2.dao;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +10,8 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-import main.data.Guard;
+import yl2.data.Guard;
+
 import manage.Management;
 
 public class GuardDAO {

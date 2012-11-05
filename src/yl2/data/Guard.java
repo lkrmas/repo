@@ -1,4 +1,4 @@
-package main.data;
+package yl2.data;
 
 import java.io.Serializable;
 import javax.persistence.*;

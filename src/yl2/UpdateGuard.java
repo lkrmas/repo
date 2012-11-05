@@ -1,4 +1,4 @@
-package main;
+package yl2;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -10,9 +10,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import main.service.GuardService;
+import yl2.service.GuardService;
 
-@WebServlet("/updateGuard")
+
+@WebServlet("/yl2/updateGuard")
 public class UpdateGuard extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;

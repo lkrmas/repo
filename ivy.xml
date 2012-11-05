@@ -16,15 +16,16 @@
 	</configurations>
 
 	<dependencies>
-		<dependency org="javax.servlet" name="javax.servlet-api"
-			rev="3.0.1" conf="build->default" />
+		<dependency org="javax.servlet" name="javax.servlet-api" rev="3.0.1" conf="build->default" />
 		<dependency org="javax.servlet" name="jstl" rev="1.2" conf="build->default" />
-
-		<!--<dependency org="hsqldb" name="hsqldb" rev="1.8.0.10" conf="build->default" />-->
 		<dependency org="org.hsqldb" name="hsqldb" rev="2.2.8" conf="build->default" />
-
 		<dependency org="org.hibernate" name="hibernate-entitymanager" rev="4.1.7.Final" conf="build->default" />
-		<!--<dependency org="org.slf4j" name="slf4j-log4j12" rev="1.6.1" conf="build->default"/>-->
-		<!--<dependency org="org.hibernate" name="hibernate-entitymanager" rev="3.6.10.Final" conf="build->default" />-->
+
+		<dependency org="org.springframework" name="spring-core" rev="3.1.2.RELEASE" conf="build->default" /> 
+		<dependency org="org.springframework" name="spring-context" rev="3.1.2.RELEASE" conf="build->default" />
+		<dependency org="org.springframework" name="spring-web" rev="3.1.2.RELEASE" conf="build->default" />
+		<dependency org="commons-logging" name="commons-logging" rev="1.1.1" conf="build->default" />
+		<dependency org="cglib" name="cglib" rev="2.2.2" conf="build->default" />
+		<dependency org="org.codehaus.jackson" name="jackson-mapper-asl" rev="1.9.10" conf="build->default" />
 	</dependencies>
 </ivy-module>

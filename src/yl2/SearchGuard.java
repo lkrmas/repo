@@ -1,4 +1,4 @@
-package main;
+package yl2;
 
 import java.io.IOException;
 import java.util.List;
@@ -9,10 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import main.data.Guard;
-import main.service.GuardService;
+import yl2.data.Guard;
+import yl2.service.GuardService;
 
-@WebServlet("/searchGuard")
+
+@WebServlet("/yl2/searchGuard")
 public class SearchGuard extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;

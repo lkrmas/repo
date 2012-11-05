@@ -1,4 +1,4 @@
-package main.extra;
+package yl2.extra;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -10,8 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import main.data.Guard;
-import main.service.GuardService;
+import yl2.data.Guard;
+import yl2.service.GuardService;
+
 
 @WebServlet("/all")
 public class DatabaseList extends HttpServlet {

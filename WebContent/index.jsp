@@ -9,9 +9,9 @@
 <body>
     <p>Antud projekti .war on ehitatav nii Gradle kui Ant abil.</p>
     <p>Ülesanne 2</p>
-    <a href="generateGuards?count=5">Servlet, millega on võimalik piirivalvureid genereerida</a><br>
-    <a href="searchGuard?name=Kalle&age=50">Servlet, millega on võimalik valvurit otsida nime järgi</a><br>
-    <a href="updateGuard?id=10&name=Pille">Servlet, millega on võimalik valvurit uuendada</a><br>
+    <a href="yl2/generateGuards?count=5">Servlet, millega on võimalik piirivalvureid genereerida</a><br>
+    <a href="yl2/searchGuard?name=Kalle&age=50">Servlet, millega on võimalik valvurit otsida nime järgi</a><br>
+    <a href="yl2/updateGuard?id=10&name=Pille">Servlet, millega on võimalik valvurit uuendada</a><br>
     <br>
     <a href="all">Täiendav servlet, mis näitab kõiki tabelis olevaid piirivalvureid</a><br>
     <br>

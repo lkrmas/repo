@@ -1,4 +1,4 @@
-package main.service;
+package yl2.service;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -6,8 +6,9 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-import main.dao.GuardDAO;
-import main.data.Guard;
+import yl2.dao.GuardDAO;
+import yl2.data.Guard;
+
 
 public class GuardService {
 

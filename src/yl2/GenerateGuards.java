@@ -1,4 +1,4 @@
-package main;
+package yl2;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -10,10 +10,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import main.data.Guard;
-import main.service.GuardService;
+import yl2.data.Guard;
+import yl2.service.GuardService;
 
-@WebServlet("/generateGuards")
+
+@WebServlet("/yl2/generateGuards")
 public class GenerateGuards extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

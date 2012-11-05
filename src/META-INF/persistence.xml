@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
 	<persistence-unit name="PU" transaction-type="RESOURCE_LOCAL">
-		<class>main.data.Guard</class>
+		<class>yl2.data.Guard</class>
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="org.hsqldb.jdbcDriver"/>
 			<property name="javax.persistence.jdbc.url" value="jdbc:hsqldb:file:${user.home}/i377/Team5-2012/db;shutdown=true"/>
