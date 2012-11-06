@@ -9,44 +9,43 @@ import java.util.List;
 import yl2.dao.GuardDAO;
 import yl2.data.Guard;
 
-
 public class GuardService {
 
-	public List<Guard> retrieveGuards()
+    public List<Guard> retrieveGuards()
     {
         GuardDAO dao = new GuardDAO();
         List<Guard> gs = dao.retrieveAllGuards();
         dao.terminate();
         return gs;
     }
-	
-	public List<Guard> retrieveGuardsByNameAge(String name, Integer age)
+
+    public List<Guard> retrieveGuardsByNameAge(String name, Integer age)
     {
         GuardDAO dao = new GuardDAO();
         List<Guard> gs = dao.retrieveGuards(name, age);
         dao.terminate();
         return gs;
     }
-	
-	public void updateGuard(Integer id, String name, Integer age)
+
+    public void updateGuard(Integer id, String name, Integer age)
     {
         GuardDAO dao = new GuardDAO();
         dao.updateGuard(id, name, age);
         dao.terminate();
     }
 
-	public List<Guard> generateGuards(int count)
+    public List<Guard> generateGuards(int count)
     {
         DateFormat df = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
         Calendar cal = Calendar.getInstance();
         GuardDAO dao = new GuardDAO();
         List<Guard> gs = new ArrayList<Guard>();
-		for (int i = 0; i < count; i ++) {
-	        Guard g = new Guard();
-	        g.setName("Generated #" + i + " on " + df.format(cal.getTime()));
-	        g.setAge(-i - 1);
-	        gs.add(g);
-		}
+        for (int i = 0; i < count; i ++) {
+            Guard g = new Guard();
+            g.setName("Generated #" + i + " on " + df.format(cal.getTime()));
+            g.setAge(-i - 1);
+            gs.add(g);
+        }
         dao.insertGuards(gs);
         dao.terminate();
         return gs;
