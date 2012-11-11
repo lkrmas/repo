@@ -11,6 +11,8 @@
     <p>Ülesanne 3</p>
     <a href="gis">Incident simulator - lihtne proovi liides intsidentide genereerimise teenusele</a><br>
     <a href="incident/listAll">Incident simulator controller - tagastab listi genereeritud intsidentidega</a><br>
+    <a href="incident/reportIncident">Incident reporting form - vorm intsidendi raporteerimiseks (salvestab andmebaasi)</a><br>
+    <p>Eelneval vormil võiks kuupäev olla sisestatud näiteks kujul 2012/11/22</p>
     <br>
     <a href="all">Täiendav servlet, mis näitab kõiki andmebaasis olevaid intsidente</a><br>
     <a href="incident/all">Täiendav leht, mis näitab kõiki andmebaasis olevaid intsidente</a><br>

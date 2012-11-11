@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
@@ -32,22 +33,23 @@ public class IncidentSimulatorServiceImpl implements IncidentService {
         Calendar cal = Calendar.getInstance();
         IncidentDAO dao = new IncidentDAO();
         List<Incident> is = new ArrayList<Incident>();
-        int count = 5;
+        Random rGen = new Random();
+        int count = rGen.nextInt(10) + 1;
         for (int k = 0; k < count; k ++) {
             Incident i = new Incident();
             i.setOpen(new Date());
             i.setClose(new Date());
-            i.setLocation("L");
-            i.setDescription("#" + k + " " + df.format(cal.getTime()));
+            i.setLocation("L" + (count - k));
+            i.setDescription("#" + (k+1) + " " + df.format(cal.getTime()));
             i.setInvolvedGuardCount(k + 1);
-            i.setStatus("S");
+            i.setStatus("S" + count);
             is.add(i);
         }
         dao.insertIncidents(is);
         dao.terminate();
         return is;
     }
-    
+
     public List<Incident> addIncident(Incident in)
     {
         IncidentDAO dao = new IncidentDAO();
