@@ -47,5 +47,15 @@ public class IncidentSimulatorServiceImpl implements IncidentService {
         dao.terminate();
         return is;
     }
+    
+    public List<Incident> addIncident(Incident in)
+    {
+        IncidentDAO dao = new IncidentDAO();
+        List<Incident> is = new ArrayList<Incident>();
+        is.add(in);
+        dao.insertIncidents(is);
+        dao.terminate();
+        return is;
+    }
 
 }

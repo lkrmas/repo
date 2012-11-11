@@ -8,5 +8,5 @@ public interface IncidentService {
 
     public List<Incident> retrieveIncidents();
     public List<Incident> getUnresolvedIncidents();
-
+    public List<Incident> addIncident(Incident in);
 }
