@@ -19,6 +19,12 @@ dependencies {
     compile group: 'javax.servlet', name: 'jstl', version: '1.2'
     compile group: 'org.hsqldb', name: 'hsqldb', version: '2.2.8'
     compile group: 'org.hibernate', name: 'hibernate-entitymanager', version: '4.1.7.Final'
+    compile group: 'org.springframework', name: 'spring-core', version: '3.1.2.RELEASE'
+    compile group: 'org.springframework', name: 'spring-context', version: '3.1.2.RELEASE'
+    compile group: 'org.springframework', name: 'spring-webmvc', version: '3.1.2.RELEASE'
+    compile group: 'commons-logging', name: 'commons-logging', version: '1.1.1'
+    compile group: 'cglib', name: 'cglib', version: '2.2.2'
+    compile group: 'org.codehaus.jackson', name: 'jackson-mapper-asl', version: '1.9.10'
 }
 
 war {
