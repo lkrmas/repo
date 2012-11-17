@@ -55,8 +55,8 @@ public class Incident implements Serializable {
         return this.involvedGuardCount;
     }
 
-    public void setInvolvedGuardCount(int involvedguardcount) {
-        this.involvedGuardCount = involvedguardcount;
+    public void setInvolvedGuardCount(int involvedGuardCount) {
+        this.involvedGuardCount = involvedGuardCount;
     }
 
     public String getLocation() {

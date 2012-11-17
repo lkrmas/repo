@@ -1,4 +1,4 @@
-package main.service;
+package yl3.service;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -11,9 +11,9 @@ import java.util.Random;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
-import main.dao.IncidentDAO;
 import main.data.Incident;
-import main.interf.IncidentService;
+import yl3.dao.IncidentDAO;
+import yl3.interf.IncidentService;
 
 @Service
 @Scope("singleton") // Kuna singleton skoop on default, pole see siin tingimata vajalik, aga kuna nii oli kirjas, siis on see ka spetsiifiliselt lisatud.

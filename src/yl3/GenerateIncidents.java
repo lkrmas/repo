@@ -1,4 +1,4 @@
-package main;
+package yl3;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -11,10 +11,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import main.data.Incident;
-import main.interf.IncidentService;
-import main.service.IncidentSimulatorServiceImpl;
+import yl3.interf.IncidentService;
+import yl3.service.IncidentSimulatorServiceImpl;
 
-@WebServlet("/gis")
+@WebServlet("/yl3/gis")
 public class GenerateIncidents extends HttpServlet {
     private static final long serialVersionUID = 1L;
 

@@ -6,8 +6,8 @@
 <body>
 
 <h2>Add incident</h2>
-<form:form method="POST" action="addIncident">
-   <table>
+<form:form method="POST" commandName="incident" action="addIncident">
+    <table>
     <tr>
         <td><form:label path="open">open</form:label></td>
         <td><form:input path="open" /></td>
@@ -20,15 +20,15 @@
         <td><form:label path="location">location</form:label></td>
         <td><form:input path="location" /></td>
     </tr>
-        <tr>
+    <tr>
         <td><form:label path="description">description</form:label></td>
         <td><form:input path="description" /></td>
     </tr>
-        <tr>
+    <tr>
         <td><form:label path="involvedGuardCount">involvedGuardCount</form:label></td>
         <td><form:input path="involvedGuardCount" /></td>
     </tr>
-        <tr>
+    <tr>
         <td><form:label path="status">status</form:label></td>
         <td><form:input path="status" /></td>
     </tr>

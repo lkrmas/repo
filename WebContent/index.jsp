@@ -9,13 +9,13 @@
 <body>
     <p>Antud projekti .war on ehitatav nii Gradle kui Ant abil.</p>
     <p>Ülesanne 3</p>
-    <a href="gis">Incident simulator - lihtne proovi liides intsidentide genereerimise teenusele</a><br>
-    <a href="incident/listAll">Incident simulator controller - tagastab listi genereeritud intsidentidega</a><br>
-    <a href="incident/reportIncident">Incident reporting form - vorm intsidendi raporteerimiseks (salvestab andmebaasi)</a><br>
+    <a href="yl3/gis">Incident simulator - lihtne proovi liides intsidentide genereerimise teenusele</a><br>
+    <a href="yl3/incident/listAll">Incident simulator controller - tagastab listi genereeritud intsidentidega</a><br>
+    <a href="yl3/incident/reportIncident">Incident reporting form - vorm intsidendi raporteerimiseks (salvestab andmebaasi)</a><br>
     <p>Eelneval vormil võiks kuupäev olla sisestatud näiteks kujul 2012/11/22</p>
     <br>
-    <a href="all">Täiendav servlet, mis näitab kõiki andmebaasis olevaid intsidente</a><br>
-    <a href="incident/all">Täiendav leht, mis näitab kõiki andmebaasis olevaid intsidente</a><br>
+    <a href="yl3/all">Täiendav servlet, mis näitab kõiki andmebaasis olevaid intsidente</a><br>
+    <a href="yl3/incident/all">Täiendav leht, mis näitab kõiki andmebaasis olevaid intsidente</a><br>
     <br>
     <p>Ülesanne 2</p>
     <a href="yl2/generateGuards?count=5">Servlet, millega on võimalik piirivalvureid genereerida</a><br>

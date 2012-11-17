@@ -27,5 +27,8 @@
 		<dependency org="commons-logging" name="commons-logging" rev="1.1.1" conf="build->default" />
 		<dependency org="cglib" name="cglib" rev="2.2.2" conf="build->default" />
 		<dependency org="org.codehaus.jackson" name="jackson-mapper-asl" rev="1.9.10" conf="build->default" />
+
+		<dependency org="org.hibernate" name="hibernate-validator" rev="4.3.0.Final" conf="build->default" />
+		<dependency org="joda-time" name="joda-time" rev="2.1" conf="build->default" />
 	</dependencies>
 </ivy-module>

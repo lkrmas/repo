@@ -55,6 +55,7 @@ public class Management extends HttpServlet {
             em.createNativeQuery("CREATE TABLE ID (ID IDENTITY)").executeUpdate();
             em.createNativeQuery("CREATE TABLE guard (id IDENTITY, name VARCHAR(50), age INT);").executeUpdate();
             em.createNativeQuery("CREATE TABLE incident (id IDENTITY, open DATE, close DATE, location VARCHAR(50), description VARCHAR(50), involvedGuardCount INT, status VARCHAR(50));").executeUpdate();
+            em.createNativeQuery("CREATE TABLE station (id IDENTITY, name VARCHAR(50), address VARCHAR(50), guardCount INT);").executeUpdate();
         }
     }
 
