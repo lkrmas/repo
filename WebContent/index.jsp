@@ -8,11 +8,15 @@
 </head>
 <body>
     <p>Antud projekti .war on ehitatav nii Gradle kui Ant abil.</p>
+    <p>Vormidel peaks kuupäev olema sisestatud kujul 23.11.2012</p>
+    <p>Ülesanne 4</p>
+    <a href="incident/read">Intsidentide vaatamise tabel</a><br>
+    <a href="incident/create">Intsidendi lisamise vorm</a><br>
+    <br>
     <p>Ülesanne 3</p>
     <a href="yl3/gis">Incident simulator - lihtne proovi liides intsidentide genereerimise teenusele</a><br>
     <a href="yl3/incident/listAll">Incident simulator controller - tagastab listi genereeritud intsidentidega</a><br>
     <a href="yl3/incident/reportIncident">Incident reporting form - vorm intsidendi raporteerimiseks (salvestab andmebaasi)</a><br>
-    <p>Eelneval vormil võiks kuupäev olla sisestatud näiteks kujul 2012/11/22</p>
     <br>
     <a href="yl3/all">Täiendav servlet, mis näitab kõiki andmebaasis olevaid intsidente</a><br>
     <a href="yl3/incident/all">Täiendav leht, mis näitab kõiki andmebaasis olevaid intsidente</a><br>
@@ -26,9 +30,9 @@
     <br>
     <p>Ülesanne 1</p>
     <a href="yl1/addGuardPost.jsp">JSP, mis võimaldab sisestada piiripunkti andmed</a><br>
-	<a href="yl1/dataview">JSP, mis võimaldab kuvada piiripunkti andmeid tabelis</a><br>
-	<a href="yl1/showparameters">Servlet, mis kuvab kõik request parameetrid</a><br>
-	<br>
-	<a href="yl1/showparameters?nimi=Pille&sugu=N">Parameetreid kuvav servlet näite parameetritega</a><br>
+    <a href="yl1/dataview">JSP, mis võimaldab kuvada piiripunkti andmeid tabelis</a><br>
+    <a href="yl1/showparameters">Servlet, mis kuvab kõik request parameetrid</a><br>
+    <br>
+    <a href="yl1/showparameters?nimi=Pille&sugu=N">Parameetreid kuvav servlet näite parameetritega</a><br>
 </body>
 </html>

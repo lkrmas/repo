@@ -3,6 +3,8 @@ package main.data;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 @NamedQueries({
@@ -16,8 +18,9 @@ public class Incident implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-
+    @DateTimeFormat(pattern="dd.MM.yyyy")
     private Date open;
+    @DateTimeFormat(pattern="dd.MM.yyyy")
     private Date close;
     private String location;
     private String description;
