@@ -9,49 +9,49 @@ import javax.persistence.*;
 
 @Entity
 public class Station implements Serializable {
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	@Id
+    @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+    private int id;
 
-	private String name;
-	private String address;
-	private int guardCount;
+    private String name;
+    private String address;
+    private int guardCount;
 
-	public Station() {
-	}
+    public Station() {
+    }
 
-	public int getId() {
-		return this.id;
-	}
+    public int getId() {
+        return this.id;
+    }
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public String getAddress() {
-		return this.address;
-	}
+    public String getAddress() {
+        return this.address;
+    }
 
-	public void setAddress(String address) {
-		this.address = address;
-	}
+    public void setAddress(String address) {
+        this.address = address;
+    }
 
-	public int getGuardCount() {
-		return this.guardCount;
-	}
+    public int getGuardCount() {
+        return this.guardCount;
+    }
 
-	public void setGuardCount(int guardCount) {
-		this.guardCount = guardCount;
-	}
+    public void setGuardCount(int guardCount) {
+        this.guardCount = guardCount;
+    }
 
-	public String getName() {
-		return this.name;
-	}
+    public String getName() {
+        return this.name;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
 }

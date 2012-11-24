@@ -24,10 +24,10 @@
 
         </c:when>
         <c:otherwise>
-        	<c:redirect url="dataview" />
+            <c:redirect url="dataview" />
         </c:otherwise>
     </c:choose>
 
-	<a href="addGuardPost.jsp">Add Guard Post</a>
+    <a href="addGuardPost.jsp">Add Guard Post</a>
 </body>
 </html>

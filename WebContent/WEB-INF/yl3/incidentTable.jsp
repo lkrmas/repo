@@ -31,6 +31,6 @@
         </c:otherwise>
     </c:choose>
 
-	<a href="../../index.jsp">Index page</a>
+    <a href="../../index.jsp">Index page</a>
 </body>
 </html>

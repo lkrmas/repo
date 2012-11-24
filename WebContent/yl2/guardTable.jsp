@@ -24,7 +24,7 @@
 
         </c:when>
         <c:otherwise>
-        	<c:redirect url="generateGuards?count=" />
+            <c:redirect url="generateGuards?count=" />
         </c:otherwise>
     </c:choose>
 

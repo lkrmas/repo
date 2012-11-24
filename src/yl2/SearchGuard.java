@@ -13,26 +13,25 @@ import main.data.Guard;
 
 import yl2.service.GuardService;
 
-
 @WebServlet("/yl2/searchGuard")
 public class SearchGuard extends HttpServlet {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	protected void doGet(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
-		GuardService gServ = new GuardService();
-		String name = request.getParameter("name");
-		Integer age = null;
-		try {
-			age = Integer.parseInt(request.getParameter("age"));
-		} catch (NumberFormatException e) {
-			age = null;
-		}
-		List<Guard> gs = gServ.retrieveGuardsByNameAge(name, age);
-		request.setAttribute("dataList", gs);
-		request.getRequestDispatcher("guardTable.jsp").forward(request,
-				response);
-	}
+    protected void doGet(HttpServletRequest request,
+            HttpServletResponse response) throws ServletException, IOException {
+        GuardService gServ = new GuardService();
+        String name = request.getParameter("name");
+        Integer age = null;
+        try {
+            age = Integer.parseInt(request.getParameter("age"));
+        } catch (NumberFormatException e) {
+            age = null;
+        }
+        List<Guard> gs = gServ.retrieveGuardsByNameAge(name, age);
+        request.setAttribute("dataList", gs);
+        request.getRequestDispatcher("guardTable.jsp").forward(request,
+                response);
+    }
 
 }
