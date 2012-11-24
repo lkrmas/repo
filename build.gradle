@@ -42,6 +42,10 @@ war {
         include 'persistence.xml'
         into('WEB-INF/classes/META-INF')
     }
+    from('src') {
+        include 'messages.properties'
+        into('WEB-INF/classes')
+    }
     archiveName = 'piirivalve-Team5-2012.war'
     destinationDir= file('dist')
     webXml = null
