@@ -6,8 +6,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
-import main.data.Incident;
-import main.service.IncidentService;
+import main.data.Guard;
+import main.service.GuardService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,59 +17,59 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("/incident")
-public class IncidentController {
+@RequestMapping("/guard")
+public class GuardController {
 
     @Autowired
-    private IncidentService iServ;
+    private GuardService iServ;
 
-    private static final String ENTITY = "incident";
+    private static final String ENTITY = "guard";
     private static final String LIST = "dataList";
-    private static final String FORM = "incidentForm";
-    private static final String TABLE = "incidentTable";
+    private static final String FORM = "guardForm";
+    private static final String TABLE = "guardTable";
 
     @RequestMapping("/read")
     public ModelAndView read() {
-        List<Incident> incidents = iServ.retrieveIncidents();
-        return new ModelAndView(TABLE, LIST, incidents);
+        List<Guard> guards = iServ.retrieveGuards();
+        return new ModelAndView(TABLE, LIST, guards);
     }
 
     @RequestMapping(value = "/create", method = RequestMethod.GET)
     public ModelAndView create() {
-        return new ModelAndView(FORM, ENTITY, new Incident());
+        return new ModelAndView(FORM, ENTITY, new Guard());
     }
 
-    @RequestMapping(value = "/addIncident", method = RequestMethod.POST)
-    public ModelAndView addIncident(@Valid Incident incident, BindingResult result) {
+    @RequestMapping(value = "/addGuard", method = RequestMethod.POST)
+    public ModelAndView addGuard(@Valid Guard guard, BindingResult result) {
         if (result.hasErrors()) {
-            return new ModelAndView(FORM, ENTITY, incident);
+            return new ModelAndView(FORM, ENTITY, guard);
         }
         else {
-            List<Incident> incidents = iServ.addIncident(incident);
-            return new ModelAndView(TABLE, LIST, incidents);
+            List<Guard> guards = iServ.addGuard(guard);
+            return new ModelAndView(TABLE, LIST, guards);
         }
     }
     
     @RequestMapping(value = "/modify", method = RequestMethod.GET)
     public ModelAndView modify(HttpSession session, HttpServletRequest request) {
-    	Incident in = new Incident();
+    	Guard gu = new Guard();
     	try {
     		int id=Integer.parseInt(request.getParameter("id"));
-    		in=iServ.getIncident(id);
+    		gu=iServ.getGuard(id);
     				
     	} catch (NumberFormatException e){    		
     	}
-        return new ModelAndView(FORM, ENTITY, in);
+        return new ModelAndView(FORM, ENTITY, gu);
     }
     
-    @RequestMapping(value = "/modifyIncident", method = RequestMethod.POST)
-    public ModelAndView modifyIncident(@Valid Incident incident, BindingResult result) {
+    @RequestMapping(value = "/modifyGuard", method = RequestMethod.POST)
+    public ModelAndView modifyGuard(@Valid Guard guard, BindingResult result) {
         if (result.hasErrors()) {
-            return new ModelAndView(FORM, ENTITY, incident);
+            return new ModelAndView(FORM, ENTITY, guard);
         }
         else {
-            List<Incident> incidents = iServ.addIncident(incident);
-            return new ModelAndView(TABLE, LIST, incidents);
+            List<Guard> guards = iServ.addGuard(guard);
+            return new ModelAndView(TABLE, LIST, guards);
         }
     }
     
@@ -77,12 +77,12 @@ public class IncidentController {
     public ModelAndView delete(HttpSession session, HttpServletRequest request) {
     	try {
     		int id=Integer.parseInt(request.getParameter("id"));
-    		iServ.deleteIncident(id);
+    		iServ.deleteGuard(id);
     				
     	} catch (NumberFormatException e){    		
     	}
-        List<Incident> incidents = iServ.retrieveIncidents();
-        return new ModelAndView(TABLE, LIST, incidents);
+        List<Guard> guards = iServ.retrieveGuards();
+        return new ModelAndView(TABLE, LIST, guards);
     }
 
 }

@@ -26,5 +26,29 @@ public class IncidentService {
         dao.terminate();
         return is;
     }
+    
+    public void modifyIncident(Incident in)
+    {
+        IncidentDAO dao = new IncidentDAO();
+        dao.modifyIncident(in);
+        List<Incident> is = dao.retrieveAllIncidents();
+        dao.terminate();
+    }
+    
+    public void deleteIncident(int id)
+    {
+        IncidentDAO dao = new IncidentDAO();
+        dao.deleteIncident(id);
+        dao.terminate();
+
+    }
+    
+    public Incident getIncident(int id)
+    {
+        IncidentDAO dao = new IncidentDAO();
+        Incident in=dao.getIncident(id);
+        dao.terminate();
+        return in;
+    }
 
 }

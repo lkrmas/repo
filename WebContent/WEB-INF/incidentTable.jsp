@@ -13,7 +13,7 @@
             <h1>Incident Table</h1>
             <a href="create">Add incident</a>
             <table border="1">
-                <tr><th>ID</th><th>Open</th><th>Close</th><th>Location</th><th>Description</th><th>IGC</th><th>Status</th></tr>
+                <tr><th>ID</th><th>Open</th><th>Close</th><th>Location</th><th>Description</th><th>IGC</th><th>Status</th><th>Modify</th><th>Delete</th></tr>
                 <c:forEach var="incident" items="${dataList}">
                     <tr>
                         <td><c:out value="${incident.id}"/></td>
@@ -23,6 +23,8 @@
                         <td><c:out value="${incident.description}"/></td>
                         <td><c:out value="${incident.involvedGuardCount}"/></td>
                         <td><c:out value="${incident.status}"/></td>
+                        <td><a href="modify?id=<c:out value="${incident.id}"/>">Modify</a></td>
+                        <td><a href="delete?id=<c:out value="${incident.id}"/>">Delete</a></td>
                     </tr>
                 </c:forEach>
             </table>
