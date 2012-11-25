@@ -9,13 +9,27 @@
 
     <global-method-security secured-annotations="enabled" />
 
+    <http pattern="/yl1/**" security="none" />
+    <http pattern="/yl2/**" security="none" />
+    <http pattern="/yl3/**" security="none" />
+
+    <http pattern="/index.jsp" security="none" />
     <http auto-config='true' use-expressions="true">
-        <intercept-url pattern="/**" access="permitAll" />
+        <intercept-url pattern="/security/*" access="permitAll" />
+
+        <intercept-url pattern="/*/read*" access="permitAll" />
+        <intercept-url pattern="/*/create*" access="hasRole('ROLE_USER')" />
+        <intercept-url pattern="/*/add*" access="hasRole('ROLE_USER')" />
+        <intercept-url pattern="/*/modify*" access="hasRole('ROLE_USER')" />
+        <intercept-url pattern="/*/delete*" access="hasRole('ROLE_ADMIN')" />
+
+        <intercept-url pattern="/**" access="denyAll" />
         <form-login login-page="/security/access"
           default-target-url="/security/success"
           always-use-default-target="true"
           authentication-failure-url="/security/failure" />
         <logout logout-success-url="/security/index" />
+        <access-denied-handler error-page="/security/denied" />
     </http>
 
     <authentication-manager>

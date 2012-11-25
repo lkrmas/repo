@@ -8,13 +8,16 @@
 </head>
 <body>
     <p>Antud projekti .war on ehitatav nii Gradle kui Ant abil.</p>
-    <p>Vormidel peaks kuupäev olema sisestatud kujul 23.11.2012</p>
+    <p>Vormidel peaks kuupäevad olema sisestatud kujul 23.11.2012</p>
     <p>Ülesanne 4</p>
+    <a href="security/access">Kasutajate sisse/välja logimine</a><br>
+    <p>Kasutajate andmed on user:user ja admin:admin</p>
     <a href="incident/read">Intsidentide vaatamise tabel</a><br>
-    <a href="incident/create">Intsidendi lisamise vorm</a><br>
     <a href="guard/read">Valvurite vaatamise tabel</a><br>
-    <a href="guard/create">Valvuri lisamise vorm</a><br>
     <a href="station/read">Piiripunktide vaatamise tabel</a><br>
+    <br>
+    <a href="incident/create">Intsidendi lisamise vorm</a><br>
+    <a href="guard/create">Valvuri lisamise vorm</a><br>
     <a href="station/create">Piiripunkti lisamise vorm</a><br>
     <br>
     <p>Ülesanne 3</p>

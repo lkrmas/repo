@@ -66,6 +66,7 @@
     <target name="war" description="Builds everything and constructs a .war archive" depends="compile">
         <mkdir dir="${dist.dir}" />
         <copy file="${src.dir}/META-INF/persistence.xml" todir="${classes.dir}/META-INF" overwrite="true" /> <!-- LISATUD PR4 -->
+        <copy file="${src.dir}/META-INF/security.xml" todir="${classes.dir}/META-INF" overwrite="true" /> <!-- LISATUD RT4 -->
         <copy file="${src.dir}/messages.properties" todir="${classes.dir}" overwrite="true" /> <!-- LISATUD RT4 -->
         <war basedir="${web.dir}" destfile="${dist.dir}/${project.name}-${team.name}.war" needxmlfile="false" /> <!-- MUUDETUD -->
         <!-- <war basedir="${web.dir}" destfile="${dist.dir}/${project.name}-${team.name}.war" webxml="${web-inf.dir}/web.xml" /> -->

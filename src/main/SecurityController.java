@@ -14,7 +14,12 @@ public class SecurityController {
 
     @RequestMapping(value="/failure")
     public String failure() {
-        return "security";
+        return "denied";
+    }
+
+    @RequestMapping(value="/denied")
+    public String denied() {
+        return "denied";
     }
 
     @RequestMapping(value="/success")
