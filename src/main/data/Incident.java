@@ -2,6 +2,7 @@ package main.data;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import javax.validation.constraints.*;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -22,9 +23,17 @@ public class Incident implements Serializable {
     private Date open;
     @DateTimeFormat(pattern="dd.MM.yyyy")
     private Date close;
+    
+    @Size(min=2, max=50)
     private String location;
+    
+    @Size(min=2, max=50)
     private String description;
+    
+    @Min(1)
     private int involvedGuardCount;
+    
+    @Size(min=2, max=50)
     private String status;
 
     public Incident() {

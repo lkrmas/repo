@@ -1,12 +1,13 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <html>
 <head>
-    <title>Add guard</title>
+    <title>Modify guard</title>
 </head>
 <body>
 
-    <h2>Add guard</h2>
-    <form:form method="POST" commandName="guard" action="addGuard">
+    <h2>Modify guard</h2>
+    <form:form method="POST" commandName="guard" action="modifyGuard">
+    <form:hidden path="id" />
         <form:errors path="*" element="div" />
         <table>
             <tr>

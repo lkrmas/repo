@@ -2,6 +2,7 @@ package main.data;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import javax.validation.constraints.*;
 
 @NamedQueries({
     @NamedQuery(name="Station.selectAll", query="SELECT s FROM Station s")
@@ -15,8 +16,13 @@ public class Station implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
+    @Size(min=2, max=50)
     private String name;
+    
+    @Size(min=2, max=50)
     private String address;
+    
+    @Min(1)
     private int guardCount;
 
     public Station() {

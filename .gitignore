@@ -15,7 +15,6 @@
 *.war
 *.ear
 
-/WebContent/WEB-INF/classes/messages.properties
-/WebContent/WEB-INF/classes/META-INF/persistence.xml
+/WebContent/WEB-INF/classes/*
 !/lib/ivy-2.2.0.jar
 !.gitignore

@@ -1,12 +1,13 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <html>
 <head>
-    <title>Add incident</title>
+    <title>Modify incident</title>
 </head>
 <body>
 
-    <h2>Add incident</h2>
-    <form:form method="POST" commandName="incident" action="addIncident">
+    <h2>Modify incident</h2>
+    <form:form method="POST" commandName="incident" action="modifyIncident">
+    <form:hidden path="id" />
         <form:errors path="*" element="div" />
         <table>
             <tr>
