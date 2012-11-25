@@ -14,6 +14,8 @@
     <a href="incident/create">Intsidendi lisamise vorm</a><br>
     <a href="guard/read">Valvurite vaatamise tabel</a><br>
     <a href="guard/create">Valvuri lisamise vorm</a><br>
+    <a href="station/read">Piiripunktide vaatamise tabel</a><br>
+    <a href="station/create">Piiripunkti lisamise vorm</a><br>
     <br>
     <p>Ülesanne 3</p>
     <a href="yl3/gis">Incident simulator - lihtne proovi liides intsidentide genereerimise teenusele</a><br>

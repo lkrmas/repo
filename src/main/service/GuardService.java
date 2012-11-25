@@ -27,12 +27,13 @@ public class GuardService {
         return is;
     }
     
-    public void modifyGuard(Guard in)
+    public List<Guard> modifyGuard(Guard in)
     {
     	GuardDAO dao = new GuardDAO();
         dao.modifyGuard(in);
         List<Guard> is = dao.retrieveAllGuards();
         dao.terminate();
+        return is;
     }
     
     public void deleteGuard(int id)

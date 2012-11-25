@@ -27,12 +27,13 @@ public class IncidentService {
         return is;
     }
     
-    public void modifyIncident(Incident in)
+    public List<Incident> modifyIncident(Incident in)
     {
         IncidentDAO dao = new IncidentDAO();
         dao.modifyIncident(in);
         List<Incident> is = dao.retrieveAllIncidents();
         dao.terminate();
+        return is;
     }
     
     public void deleteIncident(int id)

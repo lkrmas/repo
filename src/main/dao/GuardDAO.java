@@ -28,11 +28,8 @@ public class GuardDAO {
     }
 
     public void insertGuard(Guard guard) {
-    	if (em.find(Guard.class,guard.getId())!=null){
-    		em.merge(guard);	
-    	} else {
-    		em.persist(guard);
-    	}
+    	em.persist(guard);
+
     }
 
     public void terminate() {
@@ -40,10 +37,10 @@ public class GuardDAO {
         em.close();
     }
     
-    public void modifyGuard(Guard in) {
-        Guard in1 = em.find(Guard.class,in.getId());
-        in1=in;
-        em.merge(in1);
+    public void modifyGuard(Guard guard) {
+        if (em.find(Guard.class,guard.getId())!=null){
+        	em.merge(guard);
+        }
     }
     
     public Guard getGuard(int id) {

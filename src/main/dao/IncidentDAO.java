@@ -28,11 +28,7 @@ public class IncidentDAO {
     }
 
     public void insertIncident(Incident incident) {
-    	if (em.find(Incident.class,incident.getId())!=null){
-    		em.merge(incident);	
-    	} else {
-    		em.persist(incident);
-    	}
+    	em.persist(incident);
     }
 
     public void terminate() {
@@ -41,16 +37,9 @@ public class IncidentDAO {
     }
     
     public void modifyIncident(Incident in) {
-        /*private Date open;
-        @DateTimeFormat(pattern="dd.MM.yyyy")
-        private Date close;
-        private String location;
-        private String description;
-        private int involvedGuardCount;
-        private String status;*/
-        Incident in1 = em.find(Incident.class,in.getId());
-        in1=in;
-        em.merge(in1);
+        if (em.find(Incident.class,in.getId())!=null){
+        	em.merge(in);
+        }
     }
     
     public Incident getIncident(int id) {

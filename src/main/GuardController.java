@@ -26,6 +26,7 @@ public class GuardController {
     private static final String ENTITY = "guard";
     private static final String LIST = "dataList";
     private static final String FORM = "guardForm";
+    private static final String FORM_MODIFY = "guardFormModify";
     private static final String TABLE = "guardTable";
 
     @RequestMapping("/read")
@@ -56,10 +57,11 @@ public class GuardController {
     	try {
     		int id=Integer.parseInt(request.getParameter("id"));
     		gu=iServ.getGuard(id);
+    		
     				
     	} catch (NumberFormatException e){    		
     	}
-        return new ModelAndView(FORM, ENTITY, gu);
+        return new ModelAndView(FORM_MODIFY, ENTITY, gu);
     }
     
     @RequestMapping(value = "/modifyGuard", method = RequestMethod.POST)
@@ -68,7 +70,7 @@ public class GuardController {
             return new ModelAndView(FORM, ENTITY, guard);
         }
         else {
-            List<Guard> guards = iServ.addGuard(guard);
+            List<Guard> guards = iServ.modifyGuard(guard);
             return new ModelAndView(TABLE, LIST, guards);
         }
     }
