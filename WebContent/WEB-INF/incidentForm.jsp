@@ -7,6 +7,7 @@
 
     <h2>Add incident</h2>
     <form:form method="POST" commandName="incident" action="addIncident">
+    <form:hidden path="id" />
         <form:errors path="*" element="div" />
         <table>
             <tr>
