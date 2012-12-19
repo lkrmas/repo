@@ -7,36 +7,19 @@
   http://www.springframework.org/schema/security
   http://www.springframework.org/schema/security/spring-security-3.1.xsd">
 
-    <global-method-security secured-annotations="enabled" />
+    <global-method-security pre-post-annotations="enabled" />
 
-    <http pattern="/yl1/**" security="none" />
-    <http pattern="/yl2/**" security="none" />
-    <http pattern="/yl3/**" security="none" />
-
-    <http pattern="/index.jsp" security="none" />
-    <http auto-config='true' use-expressions="true">
-        <intercept-url pattern="/security/*" access="permitAll" />
-
-        <intercept-url pattern="/*/read*" access="permitAll" />
-        <intercept-url pattern="/*/create*" access="hasRole('ROLE_USER')" />
-        <intercept-url pattern="/*/add*" access="hasRole('ROLE_USER')" />
-        <intercept-url pattern="/*/modify*" access="hasRole('ROLE_USER')" />
-        <intercept-url pattern="/*/delete*" access="hasRole('ROLE_ADMIN')" />
-
-        <intercept-url pattern="/**" access="denyAll" />
-        <form-login login-page="/security/access"
-          default-target-url="/security/success"
-          always-use-default-target="true"
-          authentication-failure-url="/security/failure" />
-        <logout logout-success-url="/security/index" />
-        <access-denied-handler error-page="/security/denied" />
+    <http auto-config="false" use-expressions="true">
+        <intercept-url pattern="/**" access="permitAll" />
+        <form-login />
     </http>
 
-    <authentication-manager>
+    <authentication-manager alias="authManager">
         <authentication-provider>
             <user-service>
-                <user name="user" password="user" authorities="ROLE_USER" />
-                <user name="admin" password="admin" authorities="ROLE_USER, ROLE_ADMIN" />
+                <user name="valvur" password="valvur" authorities="ROLE_USER" />
+                <user name="ylem" password="ylem" authorities="ROLE_USER, ROLE_POWER" />
+                <user name="admin" password="admin" authorities="ROLE_USER, ROLE_POWER, ROLE_ADMIN" />
             </user-service>
         </authentication-provider>
     </authentication-manager>

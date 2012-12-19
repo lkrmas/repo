@@ -5,8 +5,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 
 import java.io.IOException;
-import java.util.ArrayList;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -45,18 +43,10 @@ public class Management extends HttpServlet {
     }
 
     public void dropOldDB() {
-        em.createNativeQuery("DROP SCHEMA PUBLIC CASCADE").executeUpdate();
     }
 
     public void createNewDB() {
-        @SuppressWarnings("unchecked")
-        ArrayList<Object> schema = (ArrayList<Object>) em.createNativeQuery("SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'PUBLIC' AND TABLE_NAME = 'ID'").getResultList();
-        if (schema.isEmpty()) {
-            em.createNativeQuery("CREATE TABLE ID (ID IDENTITY)").executeUpdate();
-            em.createNativeQuery("CREATE TABLE guard (id IDENTITY, name VARCHAR(50), age INT);").executeUpdate();
-            em.createNativeQuery("CREATE TABLE incident (id IDENTITY, open DATE, close DATE, location VARCHAR(50), description VARCHAR(50), involvedGuardCount INT, status VARCHAR(50));").executeUpdate();
-            em.createNativeQuery("CREATE TABLE station (id IDENTITY, name VARCHAR(50), address VARCHAR(50), guardCount INT);").executeUpdate();
-        }
+        Generator.generate();
     }
 
     public void terminate() {
