@@ -15,4 +15,8 @@ public class Context {
         return (AuthenticationManager) context.getBean("authManager");
     }
 
+    public static VaadinApp getApp() {
+        return context.getBean(VaadinApp.class);
+    }
+
 }
