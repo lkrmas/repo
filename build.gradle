@@ -35,6 +35,8 @@ dependencies {
     compile group: 'org.springframework.security', name: 'spring-security-config', version: '3.1.2.RELEASE'
     compile group: 'org.springframework.security', name: 'spring-security-taglibs', version: '3.1.2.RELEASE'
     compile group: 'org.springframework.security', name: 'spring-security-core', version: '3.1.2.RELEASE'
+
+    compile group: 'com.vaadin', name: 'vaadin', version: '6.8.4'
 }
 
 war {
@@ -47,10 +49,14 @@ war {
         into('WEB-INF/classes/META-INF')
     }
     from('src') {
-        include 'messages.properties'
+        include 'messages_en.properties'
         into('WEB-INF/classes')
     }
-    archiveName = 'piirivalve-Team5-2012.war'
+    from('src') {
+        include 'messages_et.properties'
+        into('WEB-INF/classes')
+    }
+    archiveName = 'piirivalve-Team5.war'
     destinationDir= file('dist')
     webXml = null
 }

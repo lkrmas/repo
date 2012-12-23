@@ -1,9 +1,15 @@
 package main.contr;
 
+import main.Context;
 import main.present.EntityPanel;
 import main.present.MainMenu;
 import main.present.MainPanel;
 import main.present.UserPanel;
+import main.wrap.AuasteWrap;
+import main.wrap.PiirivalvurWrap;
+import main.wrap.PiirivalvurauasteWrap;
+import main.wrap.VahtkondWrap;
+import main.wrap.VahtkonnaliigeWrap;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
@@ -43,6 +49,22 @@ public class MainContr implements ClickListener {
         }
         else {
             mainPanel.makeEntityMode();
+            if (source == mainMenu.getEntity1Btn()) {
+                Context.getApp().setEntityWrap(new AuasteWrap());
+            }
+            else if (source == mainMenu.getEntity2Btn()) {
+                Context.getApp().setEntityWrap(new PiirivalvurWrap());
+            }
+            else if (source == mainMenu.getEntity3Btn()) {
+                Context.getApp().setEntityWrap(new PiirivalvurauasteWrap());
+            }
+            else if (source == mainMenu.getEntity4Btn()) {
+                Context.getApp().setEntityWrap(new VahtkondWrap());
+            }
+            else if (source == mainMenu.getEntity5Btn()) {
+                Context.getApp().setEntityWrap(new VahtkonnaliigeWrap());
+            }
+            Context.getApp().getEntityContr().refreshData();
         }
     }
 

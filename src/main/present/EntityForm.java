@@ -1,17 +1,25 @@
 package main.present;
 
+import java.util.Arrays;
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import main.Context;
+import main.Locality;
 import main.contr.EntityContr;
 import main.data.BaseEntity;
+import main.util.FldFct;
+import main.util.WrapGridLayout;
+import main.wrap.BaseWrapper;
 
 import com.vaadin.data.Buffered.SourceException;
 import com.vaadin.data.Validator.InvalidValueException;
 import com.vaadin.data.util.BeanItem;
+import com.vaadin.terminal.Sizeable;
+import com.vaadin.terminal.UserError;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.CustomComponent;
 import com.vaadin.ui.Form;
@@ -31,13 +39,13 @@ public class EntityForm extends CustomComponent {
     private Button edit;
     private Button cancel;
     private Button delete;
+    private WrapGridLayout layout;
 
     @PostConstruct
     public void init() {
         entityContr.setForm(this);
         root = new VerticalLayout();
         form = new Form();
-        root.setMargin(true);
 
         add = new Button("", entityContr);
         edit = new Button("", entityContr);
@@ -48,14 +56,21 @@ public class EntityForm extends CustomComponent {
         footer.addComponent(edit);
         footer.addComponent(cancel);
         footer.addComponent(delete);
+        footer.setMargin(true);
         footer.setSpacing(true);
         form.setFooter(footer);
         form.setWriteThrough(false);
         form.setItemDataSource(null);
         form.getFooter().setVisible(false);
 
+        layout = new WrapGridLayout();
+        layout.setMargin(true);
+        layout.setSpacing(true);
+        form.setLayout(layout);
+
         setSizeFull();
         root.setSizeFull();
+        layout.setWidth(100, Sizeable.UNITS_PERCENTAGE);
         form.setSizeFull();
 
         root.addComponent(add);
@@ -65,13 +80,20 @@ public class EntityForm extends CustomComponent {
     }
 
     public void refreshLocale() {
-        add.setCaption("Lisa");
-        edit.setCaption("Salvesta");
-        cancel.setCaption("Katkesta");
-        delete.setCaption("Kustuta");
+        Locality loc = Context.getApp().getLocality();
+        add.setCaption(loc.locMsg("layout.entityform.add"));
+        edit.setCaption(loc.locMsg("layout.entityform.edit"));
+        cancel.setCaption(loc.locMsg("layout.entityform.cancel"));
+        delete.setCaption(loc.locMsg("layout.entityform.delete"));
     }
 
 
+
+    public void makeClearMutable() {
+        makeMutable();
+        setItem(null);
+        form.setComponentError(null);
+    }
 
     public void makeImmutable() {
         form.setReadOnly(true);
@@ -85,8 +107,32 @@ public class EntityForm extends CustomComponent {
         delete.setEnabled(true);
     }
 
+    public boolean checkValidity() {
+        Locality loc = Context.getApp().getLocality();
+        boolean valid = form.isValid();
+        if (! valid)
+            form.setComponentError(new UserError(loc.locMsg("layout.entityform.message")));
+        else
+            form.setComponentError(null);
+        return valid;
+    }
+
     public BaseEntity getValue() {
         return (BaseEntity) getItem().getBean();
+    }
+
+    public void setItem(BeanItem<? extends BaseEntity> item) {
+        if (item != null) {
+            BaseWrapper wrap = Context.getApp().getEntityWrap();
+            layout.prepare(wrap.getLayoutCos(), wrap.getLayoutRos(), wrap.getLayout());
+            form.setFormFieldFactory(new FldFct());
+            form.setItemDataSource(item, Arrays.asList(wrap.getFrmColOrdr()));
+            form.getFooter().setVisible(true);
+        }
+        else {
+            form.setItemDataSource(null);
+            form.getFooter().setVisible(false);
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -118,10 +164,6 @@ public class EntityForm extends CustomComponent {
 
     public void discard() throws SourceException {
         form.discard();
-    }
-
-    public boolean isValid() {
-        return form.isValid();
     }
 
 }

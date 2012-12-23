@@ -1,7 +1,11 @@
 package main.present;
 
+import java.util.Locale;
+
 import javax.annotation.PostConstruct;
 
+import main.Context;
+import main.Locality;
 import main.contr.LocaleContr;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -24,6 +28,9 @@ public class LocalePanel extends CustomComponent {
     private NativeSelect langSel;
     private Button langBut;
 
+    private Locale localeUS;
+    private Locale localeET;
+
     @PostConstruct
     public void init() {
         localeContr.setLocalePanel(this);
@@ -36,6 +43,13 @@ public class LocalePanel extends CustomComponent {
 
         langSel.setSizeUndefined();
 
+        Locale localeUS = Locale.US;
+        langSel.addItem(localeUS);
+        langSel.setItemCaption(localeUS, "English");
+        Locale localeET = new Locale("et", "ET");
+        langSel.addItem(localeET);
+        langSel.setItemCaption(localeET, "Eesti");
+
         langSel.setNullSelectionAllowed(false);
 
         langBut.addListener(localeContr);
@@ -46,9 +60,16 @@ public class LocalePanel extends CustomComponent {
     }
 
     public void refreshLocale() {
-        setCaption("Keel");
-        langSel.setCaption("Keel");
-        langBut.setCaption("Vali");
+        Locality loc = Context.getApp().getLocality();
+        setCaption(loc.locMsg("layout.localepanel.caption"));
+        langSel.setCaption(loc.locMsg("layout.localepanel.selection"));
+        langBut.setCaption(loc.locMsg("layout.localepanel.button"));
+        if (loc.getLocale().equals(localeUS))
+            langSel.setValue(localeUS);
+        else if (loc.getLocale().equals(localeET))
+            langSel.setValue(localeET);
+        else
+            langSel.setValue(null);
     }
 
 

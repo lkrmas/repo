@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
-<project name="Team05" default="compile" xmlns:ivy="antlib:org.apache.ivy.ant">
+<project name="Team5" default="compile" xmlns:ivy="antlib:org.apache.ivy.ant">
 
-    <property name="team.name" value="Team05" />
+    <property name="team.name" value="Team5" />
     <property name="project.name" value="piirivalve" />
     <property name="project.dir" value="${basedir}" />
 
@@ -65,12 +65,11 @@
 
     <target name="war" description="Builds everything and constructs a .war archive" depends="compile">
         <mkdir dir="${dist.dir}" />
-        <copy file="${src.dir}/META-INF/persistence.xml" todir="${classes.dir}/META-INF" overwrite="true" /> <!-- LISATUD PR4 -->
-        <copy file="${src.dir}/META-INF/security.xml" todir="${classes.dir}/META-INF" overwrite="true" /> <!-- LISATUD RT4 -->
-        <copy file="${src.dir}/messages.properties" todir="${classes.dir}" overwrite="true" /> <!-- LISATUD RT4 -->
-        <war basedir="${web.dir}" destfile="${dist.dir}/${project.name}-${team.name}.war" needxmlfile="false" /> <!-- MUUDETUD -->
-        <!-- <war basedir="${web.dir}" destfile="${dist.dir}/${project.name}-${team.name}.war" webxml="${web-inf.dir}/web.xml" /> -->
-        <!-- <delete file="${dist.dir}/web.xml" /> -->
+        <copy file="${src.dir}/META-INF/persistence.xml" todir="${classes.dir}/META-INF" overwrite="true" />
+        <copy file="${src.dir}/META-INF/security.xml" todir="${classes.dir}/META-INF" overwrite="true" />
+        <copy file="${src.dir}/messages_en.properties" todir="${classes.dir}" overwrite="true" />
+        <copy file="${src.dir}/messages_et.properties" todir="${classes.dir}" overwrite="true" />
+        <war basedir="${web.dir}" destfile="${dist.dir}/${project.name}-${team.name}.war" webxml="${web-inf.dir}/web.xml" />
     </target>
 
 </project>

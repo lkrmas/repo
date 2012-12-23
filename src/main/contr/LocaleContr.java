@@ -1,5 +1,8 @@
 package main.contr;
 
+import java.util.Locale;
+
+import main.Context;
 import main.present.LocalePanel;
 
 import org.springframework.context.annotation.Scope;
@@ -20,7 +23,11 @@ public class LocaleContr implements ClickListener {
     }
 
     public void buttonClick(ClickEvent event) {
-        // TODO Auto-generated method stub
+        Locale locale = (Locale) localePanel.getLangSel().getValue();
+        if (locale != null) {
+            Context.getApp().getLocality().setLocale(locale);
+            Context.getApp().refreshLocale();
+        }
     }
 
     public void refreshLocale() {

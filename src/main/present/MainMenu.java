@@ -6,7 +6,14 @@ import com.vaadin.ui.CustomComponent;
 import com.vaadin.ui.VerticalLayout;
 import javax.annotation.PostConstruct;
 
+import main.Context;
+import main.Locality;
 import main.contr.MainContr;
+import main.wrap.AuasteWrap;
+import main.wrap.PiirivalvurWrap;
+import main.wrap.PiirivalvurauasteWrap;
+import main.wrap.VahtkondWrap;
+import main.wrap.VahtkonnaliigeWrap;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -72,12 +79,13 @@ public class MainMenu extends CustomComponent {
     }
 
     public void refreshLocale() {
-        userBtn.setCaption("Kasutaja");
-        entity1Btn.setCaption("Auaste");
-        entity2Btn.setCaption("Piirivalvur");
-        entity3Btn.setCaption("Piirivalvurauaste");
-        entity4Btn.setCaption("Vahtkond");
-        entity5Btn.setCaption("Vahtkonnaliige");
+        Locality loc = Context.getApp().getLocality();
+        userBtn.setCaption(loc.locMsg("layout.mainmenu.userbutton"));
+        entity1Btn.setCaption(new AuasteWrap().getName());
+        entity2Btn.setCaption(new PiirivalvurWrap().getName());
+        entity3Btn.setCaption(new PiirivalvurauasteWrap().getName());
+        entity4Btn.setCaption(new VahtkondWrap().getName());
+        entity5Btn.setCaption(new VahtkonnaliigeWrap().getName());
     }
 
     public void makeLoggedOutMode() {

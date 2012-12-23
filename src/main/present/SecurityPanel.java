@@ -9,6 +9,8 @@ import com.vaadin.ui.Panel;
 import com.vaadin.ui.TextField;
 import javax.annotation.PostConstruct;
 
+import main.Context;
+import main.Locality;
 import main.contr.SecurityContr;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,11 +64,12 @@ public class SecurityPanel extends CustomComponent {
     }
 
     public void refreshLocale() {
-        setCaption("Turve");
-        username.setCaption("Kasutajanimi");
-        password.setCaption("Parool");
-        button.setCaption("Turve");
-        message.setValue("Valed andmed!");
+        Locality loc = Context.getApp().getLocality();
+        setCaption(loc.locMsg("layout.securitypanel.caption"));
+        username.setCaption(loc.locMsg("layout.securitypanel.username"));
+        password.setCaption(loc.locMsg("layout.securitypanel.password"));
+        button.setCaption(loc.locMsg("layout.securitypanel.button"));
+        message.setValue(loc.locMsg("layout.securitypanel.message"));
     }
 
 

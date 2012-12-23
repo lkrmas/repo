@@ -11,6 +11,7 @@ import main.contr.LocaleContr;
 import main.contr.MainContr;
 import main.contr.SecurityContr;
 import main.present.MainPanel;
+import main.wrap.BaseWrapper;
 
 import com.vaadin.ui.Window;
 
@@ -26,13 +27,16 @@ public class VaadinApp extends Application {
     @Autowired private LocaleContr localeContr;
     @Autowired private EntityContr entityContr;
 
+    private Locality locality;
     private Security security;
+    private BaseWrapper entityWrap;
     private boolean newEntityMode;
     private boolean mutableMode;
 
     @Override
     public void init() {
         setMainWindow(new Window());
+        locality = new Locality(getLocale());
         security = null;
         newEntityMode = false;
         makeLoggedOut();
@@ -41,7 +45,8 @@ public class VaadinApp extends Application {
     }
 
     public void refreshLocale() {
-        getMainWindow().setCaption("Rakendus");
+        Locality loc = Context.getApp().getLocality();
+        getMainWindow().setCaption(loc.locMsg("layout.application"));
         mainContr.refreshLocale();
         securityContr.refreshLocale();
         localeContr.refreshLocale();
@@ -58,12 +63,28 @@ public class VaadinApp extends Application {
 
 
 
+    public Locality getLocality() {
+        return locality;
+    }
+
+    public void setLocality(Locality locality) {
+        this.locality = locality;
+    }
+
     public Security getSecurity() {
         return security;
     }
 
     public void setSecurity(Security security) {
         this.security = security;
+    }
+
+    public BaseWrapper getEntityWrap() {
+        return entityWrap;
+    }
+
+    public void setEntityWrap(BaseWrapper entityWrap) {
+        this.entityWrap = entityWrap;
     }
 
     public boolean getNewEntityMode() {
